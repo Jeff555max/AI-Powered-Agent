@@ -6,6 +6,8 @@
 from typing import Dict, Optional
 from datetime import datetime, timedelta
 import logging
+import json
+import os
 
 from .user_context import UserContext
 
@@ -15,15 +17,20 @@ logger = logging.getLogger(__name__)
 class SessionManager:
     """Менеджер сессий пользователей."""
     
-    def __init__(self, session_timeout: int = 3600):
+    def __init__(self, session_timeout: int = 3600, persist_file: str = "sessions.json"):
         """
         Инициализирует менеджер сессий.
         
         Args:
             session_timeout: Таймаут сессии в секундах (по умолчанию 1 час)
+            persist_file: Файл для сохранения сессий
         """
         self.sessions: Dict[str, UserContext] = {}
         self.session_timeout = session_timeout
+        self.persist_file = persist_file
+        
+        # Загружаем сохраненные сессии
+        self._load_sessions()
         
         logger.info(f"SessionManager инициализирован (timeout={session_timeout}s)")
     
@@ -120,4 +127,44 @@ class SessionManager:
         """
         self.cleanup_expired_sessions()
         return list(self.sessions.keys())
+    
+    def _load_sessions(self):
+        """Загружает сессии из файла."""
+        if not os.path.exists(self.persist_file):
+            return
+        
+        try:
+            with open(self.persist_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            for user_id, session_data in data.items():
+                context = UserContext(user_id)
+                context.conversation_history = session_data.get('conversation_history', [])
+                context.last_activity = datetime.fromisoformat(session_data.get('last_activity'))
+                self.sessions[user_id] = context
+            
+            logger.info(f"Загружено {len(self.sessions)} сессий из {self.persist_file}")
+        except Exception as e:
+            logger.error(f"Ошибка загрузки сессий: {e}")
+    
+    def _save_sessions(self):
+        """Сохраняет сессии в файл."""
+        try:
+            data = {}
+            for user_id, session in self.sessions.items():
+                data[user_id] = {
+                    'conversation_history': session.conversation_history,
+                    'last_activity': session.last_activity.isoformat()
+                }
+            
+            with open(self.persist_file, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            
+            logger.debug(f"Сохранено {len(self.sessions)} сессий в {self.persist_file}")
+        except Exception as e:
+            logger.error(f"Ошибка сохранения сессий: {e}")
+    
+    def save(self):
+        """Публичный метод для сохранения сессий."""
+        self._save_sessions()
 

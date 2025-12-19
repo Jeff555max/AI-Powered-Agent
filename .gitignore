@@ -23,6 +23,7 @@ chroma_db/
 
 # User data
 user_data.json
+sessions.json
 
 # Logs
 *.log

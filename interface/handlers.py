@@ -129,6 +129,7 @@ class BotHandlers:
         session = self.session_manager.get_session(user_id)
         if session:
             session.clear_conversation_history()
+            self.session_manager.save()
             await update.message.reply_text("✅ История диалога очищена!")
         else:
             await update.message.reply_text("ℹ️ История диалога пуста.")
@@ -163,21 +164,29 @@ class BotHandlers:
             
             logger.info(f"Найдено документов: {len(documents)}")
             
-            # 2. Получаем историю диалога
+            # 2. Получаем историю диалога (без текущего вопроса)
             conversation_history = session.get_conversation_history(
                 max_messages=10,
                 include_timestamps=False
             )
             
+            # Убираем последнее сообщение (текущий вопрос пользователя)
+            history_for_ai = conversation_history[:-1] if len(conversation_history) > 1 else []
+            
+            logger.info(f"История диалога: {len(history_for_ai)} сообщений")
+            
             # 3. Генерируем ответ
             answer = self.response_generator.generate(
                 query=user_query,
                 context_documents=documents,
-                conversation_history=conversation_history[:-1] if conversation_history else None
+                conversation_history=history_for_ai if history_for_ai else None
             )
             
             # 4. Добавляем ответ в историю
             session.add_message("assistant", answer)
+            
+            # Сохраняем сессии
+            self.session_manager.save()
             
             # 5. Форматируем ответ с источниками
             sources = self.context_retriever.get_sources(documents)
