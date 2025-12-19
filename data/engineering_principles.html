@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Инженерные принципы</title>
+</head>
+<body>
+    <h1>Инженерные принципы и best practices</h1>
+    
+    <h2>Наши инженерные ценности</h2>
+    
+    <h3>1. Качество превыше скорости</h3>
+    <p>Мы не жертвуем качеством ради скорости доставки. Технический долг должен быть минимален, а код - поддерживаемым.</p>
+    <ul>
+        <li>Code review обязателен для каждого PR</li>
+        <li>Минимум 80% test coverage</li>
+        <li>Документация - часть Definition of Done</li>
+        <li>Technical debt отслеживается и планируется</li>
+    </ul>
+    
+    <h3>2. Автоматизация всего</h3>
+    <p>Если что-то делается больше двух раз - автоматизируй это.</p>
+    <ul>
+        <li>CI/CD для всех проектов</li>
+        <li>Automated testing на всех уровнях</li>
+        <li>Infrastructure as Code</li>
+        <li>Automated deployments</li>
+    </ul>
+    
+    <h3>3. Измеряй всё</h3>
+    <p>You can't improve what you don't measure.</p>
+    <ul>
+        <li>Logging для всех критичных операций</li>
+        <li>Metrics для performance tracking</li>
+        <li>Distributed tracing</li>
+        <li>Error tracking и alerting</li>
+    </ul>
+    
+    <h3>4. Fail fast, learn faster</h3>
+    <p>Ошибки - это возможность учиться. Fail fast, но с минимальным impact.</p>
+    <ul>
+        <li>Comprehensive error handling</li>
+        <li>Circuit breakers для external dependencies</li>
+        <li>Graceful degradation</li>
+        <li>Blameless post-mortems</li>
+    </ul>
+    
+    <h3>5. Security by design</h3>
+    <p>Безопасность - не afterthought, а часть design process.</p>
+    <ul>
+        <li>Security review для всех features</li>
+        <li>Regular security audits</li>
+        <li>Principle of least privilege</li>
+        <li>Security training для всех</li>
+    </ul>
+    
+    <h2>SOLID Principles</h2>
+    
+    <h3>S - Single Responsibility Principle</h3>
+    <p>Каждый класс/функция должны иметь одну ответственность.</p>
+    <pre>
+// ❌ Bad
+class UserService {
+  createUser() { }
+  sendEmail() { }
+  generateReport() { }
+}
+
+// ✅ Good
+class UserService {
+  createUser() { }
+}
+class EmailService {
+  sendEmail() { }
+}
+class ReportService {
+  generateReport() { }
+}
+    </pre>
+    
+    <h3>O - Open/Closed Principle</h3>
+    <p>Open for extension, closed for modification.</p>
+    
+    <h3>L - Liskov Substitution Principle</h3>
+    <p>Subtypes должны быть заменяемы на base types.</p>
+    
+    <h3>I - Interface Segregation Principle</h3>
+    <p>Много специализированных интерфейсов лучше одного общего.</p>
+    
+    <h3>D - Dependency Inversion Principle</h3>
+    <p>Зависимости на абстракциях, не на конкретных реализациях.</p>
+    
+    <h2>Clean Code Practices</h2>
+    
+    <h3>Meaningful Names</h3>
+    <ul>
+        <li>Use intention-revealing names</li>
+        <li>Avoid disinformation</li>
+        <li>Make meaningful distinctions</li>
+        <li>Use pronounceable names</li>
+        <li>Use searchable names</li>
+    </ul>
+    
+    <h3>Functions</h3>
+    <ul>
+        <li>Small functions (< 20 lines)</li>
+        <li>Do one thing</li>
+        <li>One level of abstraction</li>
+        <li>Descriptive names</li>
+        <li>Minimal arguments (0-3)</li>
+        <li>No side effects</li>
+    </ul>
+    
+    <h3>Comments</h3>
+    <ul>
+        <li>Code should be self-documenting</li>
+        <li>Comments explain WHY, not WHAT</li>
+        <li>Remove commented-out code</li>
+        <li>Keep comments up-to-date</li>
+    </ul>
+    
+    <h2>Architecture Principles</h2>
+    
+    <h3>Microservices когда appropriate</h3>
+    <p>Не делайте микросервисы ради микросервисов. Start with monolith, split when needed.</p>
+    
+    <h3>API-first design</h3>
+    <p>Design API перед implementation. OpenAPI specs first.</p>
+    
+    <h3>Database per service</h3>
+    <p>Каждый микросервис имеет свою БД. No shared databases.</p>
+    
+    <h3>Event-driven architecture</h3>
+    <p>Loose coupling через events. Use message queues (Kafka, RabbitMQ).</p>
+    
+    <h3>CQRS где applicable</h3>
+    <p>Separate read and write models для complex domains.</p>
+    
+    <h2>Performance Best Practices</h2>
+    
+    <h3>Database</h3>
+    <ul>
+        <li>Index правильно</li>
+        <li>Избегайте N+1 queries</li>
+        <li>Use connection pooling</li>
+        <li>Pagination для больших datasets</li>
+        <li>Caching стратегия</li>
+    </ul>
+    
+    <h3>API</h3>
+    <ul>
+        <li>Response compression (gzip)</li>
+        <li>Pagination по умолчанию</li>
+        <li>Field selection (sparse fieldsets)</li>
+        <li>Caching headers</li>
+        <li>Rate limiting</li>
+    </ul>
+    
+    <h3>Frontend</h3>
+    <ul>
+        <li>Code splitting</li>
+        <li>Lazy loading</li>
+        <li>Image optimization</li>
+        <li>Minimize bundle size</li>
+        <li>Use CDN</li>
+    </ul>
+    
+    <h2>Error Handling</h2>
+    
+    <h3>Defensive Programming</h3>
+    <ul>
+        <li>Validate all inputs</li>
+        <li>Check for null/undefined</li>
+        <li>Handle edge cases</li>
+        <li>Fail gracefully</li>
+    </ul>
+    
+    <h3>Logging Best Practices</h3>
+    <ul>
+        <li>Structured logging (JSON)</li>
+        <li>Log levels correctly (debug, info, warn, error)</li>
+        <li>Include context (request ID, user ID)</li>
+        <li>Don't log sensitive data</li>
+        <li>Log errors with stack traces</li>
+    </ul>
+    
+    <h2>Testing Philosophy</h2>
+    
+    <h3>Test Pyramid</h3>
+    <ul>
+        <li>Много unit tests (быстрые, изолированные)</li>
+        <li>Меньше integration tests</li>
+        <li>Еще меньше E2E tests</li>
+    </ul>
+    
+    <h3>TDD Approach</h3>
+    <ol>
+        <li>Write failing test</li>
+        <li>Write minimal code to pass</li>
+        <li>Refactor</li>
+        <li>Repeat</li>
+    </ol>
+    
+    <h2>Documentation</h2>
+    
+    <h3>Code Documentation</h3>
+    <ul>
+        <li>Self-documenting code</li>
+        <li>Docstrings для публичных APIs</li>
+        <li>Architecture Decision Records (ADRs)</li>
+        <li>README для каждого проекта</li>
+    </ul>
+    
+    <h3>API Documentation</h3>
+    <ul>
+        <li>OpenAPI/Swagger specs</li>
+        <li>Interactive docs</li>
+        <li>Examples для каждого endpoint</li>
+        <li>Error codes documented</li>
+    </ul>
+    
+    <h2>Code Review Guidelines</h2>
+    
+    <h3>Что проверять</h3>
+    <ul>
+        <li>Correctness</li>
+        <li>Design</li>
+        <li>Complexity</li>
+        <li>Tests</li>
+        <li>Naming</li>
+        <li>Comments</li>
+        <li>Style</li>
+        <li>Documentation</li>
+    </ul>
+    
+    <h3>Как давать feedback</h3>
+    <ul>
+        <li>Be kind and constructive</li>
+        <li>Explain WHY</li>
+        <li>Suggest alternatives</li>
+        <li>Praise good solutions</li>
+        <li>Use prefixes ([MUST FIX], [SUGGESTION], [NITPICK])</li>
+    </ul>
+    
+    <h2>Version Control</h2>
+    
+    <h3>Git Flow</h3>
+    <ul>
+        <li>main - production code</li>
+        <li>develop - integration branch</li>
+        <li>feature/* - feature branches</li>
+        <li>hotfix/* - production fixes</li>
+    </ul>
+    
+    <h3>Commit Messages</h3>
+    <p>Follow Conventional Commits:</p>
+    <pre>
+type(scope): subject
+
+body
+
+footer
+    </pre>
+    <p>Types: feat, fix, docs, style, refactor, test, chore</p>
+    
+    <h2>Security Guidelines</h2>
+    
+    <ul>
+        <li>Never commit secrets</li>
+        <li>Use environment variables</li>
+        <li>Validate all inputs</li>
+        <li>Parameterized queries</li>
+        <li>HTTPS everywhere</li>
+        <li>Proper authentication</li>
+        <li>Authorization checks</li>
+        <li>Regular dependency updates</li>
+    </ul>
+    
+    <h2>Scalability Principles</h2>
+    
+    <h3>Horizontal Scaling</h3>
+    <p>Design для horizontal scaling. Stateless applications.</p>
+    
+    <h3>Caching Strategy</h3>
+    <ul>
+        <li>Cache at multiple levels</li>
+        <li>CDN для static content</li>
+        <li>Redis для application cache</li>
+        <li>Database query cache</li>
+    </ul>
+    
+    <h3>Async Processing</h3>
+    <p>Offload heavy tasks to background jobs. Use message queues.</p>
+    
+    <h2>Monitoring & Observability</h2>
+    
+    <h3>The Three Pillars</h3>
+    <ul>
+        <li><strong>Metrics:</strong> Prometheus, Datadog</li>
+        <li><strong>Logs:</strong> ELK stack, Loki</li>
+        <li><strong>Traces:</strong> Jaeger, OpenTelemetry</li>
+    </ul>
+    
+    <h3>What to Monitor</h3>
+    <ul>
+        <li>Request rate</li>
+        <li>Error rate</li>
+        <li>Latency (p50, p95, p99)</li>
+        <li>Saturation (CPU, memory, disk)</li>
+        <li>Business metrics</li>
+    </ul>
+    
+    <h2>Deployment Best Practices</h2>
+    
+    <ul>
+        <li>Blue-green deployments</li>
+        <li>Canary releases</li>
+        <li>Feature flags</li>
+        <li>Automated rollbacks</li>
+        <li>Database migrations separately</li>
+        <li>Zero-downtime deployments</li>
+    </ul>
+    
+    <h2>Continuous Improvement</h2>
+    
+    <h3>Regular Reviews</h3>
+    <ul>
+        <li>Code quality metrics</li>
+        <li>Performance metrics</li>
+        <li>Security audits</li>
+        <li>Architecture reviews</li>
+    </ul>
+    
+    <h3>Learning Culture</h3>
+    <ul>
+        <li>Brown bag sessions</li>
+        <li>Tech talks</li>
+        <li>Pair programming</li>
+        <li>Mob programming sessions</li>
+        <li>Post-mortems</li>
+    </ul>
+    
+    <h2>Anti-Patterns to Avoid</h2>
+    
+    <ul>
+        <li>❌ Premature optimization</li>
+        <li>❌ Over-engineering</li>
+        <li>❌ Not invented here syndrome</li>
+        <li>❌ Copy-paste programming</li>
+        <li>❌ Magic numbers</li>
+        <li>❌ God objects</li>
+        <li>❌ Spaghetti code</li>
+        <li>❌ Shotgun surgery</li>
+    </ul>
+    
+    <p><strong>Remember:</strong> These are guidelines, not rules. Use your judgment and context!</p>
+</body>
+</html>
+

@@ -1,0 +1,200 @@
+О КОМПАНИИ - ОБЗОР
+
+Кто мы
+
+Мы - ведущая IT-компания полного цикла, специализирующаяся на разработке программного обеспечения, анализе данных, облачных решениях и IT-консалтинге. Основана в 2010 году, сегодня наша команда насчитывает более 5000 специалистов в офисах по всему миру.
+
+Наша миссия
+
+Создавать технологические решения, которые меняют бизнес и улучшают жизнь людей. Мы верим, что инновации должны быть доступны каждому, и работаем над тем, чтобы сделать сложные технологии простыми и понятными.
+
+Направления деятельности
+
+1. Разработка программного обеспечения
+- Веб-приложения и SaaS продукты
+- Мобильные приложения (iOS, Android, кросс-платформа)
+- Enterprise системы и ERP
+- Микросервисная архитектура
+- Cloud-native приложения
+
+2. Анализ данных и Data Science
+- Big Data обработка и аналитика
+- Machine Learning и AI решения
+- Business Intelligence и визуализация
+- Predictive analytics
+- Recommendation systems
+
+3. Облачные решения
+- Миграция в облако (AWS, GCP, Azure)
+- Cloud infrastructure design
+- DevOps и автоматизация
+- Kubernetes orchestration
+- Serverless архитектуры
+
+4. IT-консалтинг
+- Технологический аудит
+- Архитектурное проектирование
+- Digital transformation
+- Agile трансформация
+- Security consulting
+
+5. QA и тестирование
+- Автоматизация тестирования
+- Performance testing
+- Security testing
+- Test strategy consulting
+
+Наши технологии
+
+Frontend: React, Vue, Angular, Next.js, TypeScript
+Backend: Node.js, Python, Java, Go, .NET
+Mobile: React Native, Flutter, Swift, Kotlin
+Data: Python, Spark, Airflow, Snowflake, BigQuery
+ML/AI: PyTorch, TensorFlow, scikit-learn, LangChain
+Cloud: AWS, GCP, Azure
+DevOps: Docker, Kubernetes, Terraform, GitHub Actions
+Databases: PostgreSQL, MongoDB, Redis, Elasticsearch
+
+Ключевые цифры
+
+- 5000+ сотрудников
+- 15+ стран присутствия
+- 500+ успешных проектов ежегодно
+- 200+ корпоративных клиентов
+- 95% client satisfaction rate
+- 4.8/5 рейтинг на Glassdoor
+
+Наши клиенты
+
+Мы работаем с компаниями различных размеров и индустрий:
+- Финансовые услуги и банкинг
+- E-commerce и retail
+- Healthcare и фармацевтика
+- Телеком
+- Media и entertainment
+- Logistics и transportation
+- Energy
+- Education
+
+От стартапов до Fortune 500 компаний - мы помогаем всем достигать их технологических целей.
+
+Офисы
+
+Главный офис: Москва, Россия
+Региональные офисы:
+- Санкт-Петербург
+- Казань
+- Новосибирск
+- Екатеринбург
+
+International offices:
+- London, UK
+- Berlin, Germany
+- Dubai, UAE
+- Singapore
+
+Удаленные сотрудники по всему миру
+
+Корпоративная культура
+
+Наши ценности:
+1. Инновации - мы постоянно ищем лучшие решения
+2. Качество - мы не идем на компромиссы с качеством
+3. Открытость - прозрачная коммуникация на всех уровнях
+4. Развитие - инвестируем в рост каждого сотрудника
+5. Командная работа - вместе мы сильнее
+
+Что делает нас особенными:
+- Гибкий график и удаленная работа
+- 150,000 руб годовой бюджет на обучение
+- Работа с cutting-edge технологиями
+- Международные проекты
+- Flat hierarchy и short decision-making cycles
+- Инновационные пятницы (20% времени на свои проекты)
+- Сильное tech community
+
+Карьерные возможности
+
+Мы постоянно растем и ищем талантливых профессионалов:
+- Software Engineers (все уровни)
+- Data Scientists и ML Engineers
+- DevOps Engineers
+- QA Engineers
+- Product Managers
+- UI/UX Designers
+- Business Analysts
+- Project Managers
+
+Карьерные треки:
+- Technical track (Individual Contributor)
+- Management track (Team Lead → Manager → Director)
+- Возможность переходов между треками
+
+Обучение и развитие
+
+- Internal Tech University с курсами по всем направлениям
+- Менторские программы
+- Конференции и митапы
+- Сертификационные программы
+- English classes
+- Soft skills training
+- Leadership development programs
+
+Технологическое лидерство
+
+- Участие в open source проектах
+- Публикации в tech блогах
+- Выступления на конференциях
+- Проведение собственных митапов
+- Хакатоны и innovation challenges
+- Research partnerships с университетами
+
+Awards & Recognition
+
+- Top 10 IT companies в России (2023)
+- Best Employer in IT (2022, 2023)
+- Innovation Award for AI solutions
+- Cloud Partner of the Year (AWS, 2023)
+- ISO 27001 certified
+- SOC 2 Type II compliant
+
+Социальная ответственность
+
+Мы активно участвуем в:
+- IT-образовании для школьников
+- Бесплатных coding bootcamps
+- Волонтерских проектах
+- Экологических инициативах
+- Поддержке tech communities
+
+Партнерства
+
+Официальные партнеры:
+- AWS Advanced Consulting Partner
+- Google Cloud Partner
+- Microsoft Gold Partner
+- HashiCorp Partner
+- Databricks Partner
+- Snowflake Partner
+
+Наше видение будущего
+
+Мы видим будущее, где:
+- AI и автоматизация делают рутину эффективнее
+- Cloud-first подход становится стандартом
+- Data-driven решения принимаются на всех уровнях
+- Remote work - это норма, а не исключение
+- Technology democratized для всех
+
+Присоединяйтесь к нам
+
+Если вы разделяете наши ценности и хотите работать с cutting-edge технологиями в команде профессионалов - мы будем рады видеть вас в нашей команде!
+
+Контакты:
+- Careers: careers@company.com
+- Сайт: https://company.com
+- LinkedIn: linkedin.com/company/ourcompany
+- GitHub: github.com/ourcompany
+
+#WeAreHiring #TechForGood #InnovationFirst
+

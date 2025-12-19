@@ -1,0 +1,571 @@
+DEVOPS PRACTICES И КУЛЬТУРА
+
+Что такое DevOps?
+
+DevOps - это культура, набор практик и инструментов, которые объединяют разработку (Dev) и операции (Ops) для ускорения доставки качественного ПО.
+
+Наши DevOps принципы
+
+1. Автоматизация всего
+- Infrastructure as Code
+- Automated testing
+- Automated deployments
+- Automated monitoring
+
+2. Continuous Integration & Continuous Delivery
+- Частые коммиты
+- Автоматические builds
+- Automated testing
+- Automated deployments
+
+3. Monitoring & Feedback
+- Real-time monitoring
+- Automated alerts
+- Log aggregation
+- Performance tracking
+
+4. Collaboration & Communication
+- Shared responsibility
+- Blameless culture
+- Knowledge sharing
+- Cross-functional teams
+
+5. Continuous Improvement
+- Metrics-driven decisions
+- Regular retrospectives
+- Experimentation
+- Learning culture
+
+Infrastructure as Code (IaC)
+
+Terraform
+- Infrastructure provisioning
+- Multi-cloud support
+- State management
+- Modular approach
+
+Example:
+```hcl
+resource "aws_instance" "app_server" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t3.medium"
+  
+  tags = {
+    Name = "AppServer"
+    Environment = "production"
+  }
+}
+```
+
+Ansible
+- Configuration management
+- Application deployment
+- Orchestration
+- Agentless
+
+CloudFormation / ARM Templates
+- AWS-native IaC
+- Azure Resource Manager
+- Template-based
+
+Benefits:
+- Version control для infrastructure
+- Reproducible environments
+- Disaster recovery
+- Documentation as code
+
+CI/CD Pipeline
+
+Continuous Integration
+
+Triggers:
+- Push to repository
+- Pull request creation
+- Scheduled builds
+
+Steps:
+1. Checkout code
+2. Install dependencies
+3. Lint code
+4. Run unit tests
+5. Run integration tests
+6. Build artifacts
+7. Security scanning
+8. Push to registry
+
+Tools:
+- GitHub Actions (primary)
+- GitLab CI
+- Jenkins (legacy)
+
+Continuous Delivery
+
+Environments:
+- Development (auto-deploy from develop)
+- Staging (auto-deploy after CI)
+- Production (manual approval)
+
+Deployment Strategies:
+- Rolling deployment
+- Blue-Green deployment
+- Canary deployment
+- Feature flags
+
+Rollback Strategy:
+- Automated rollback on failures
+- Manual rollback option
+- Database rollback plan
+- Communication protocol
+
+Containerization
+
+Docker
+
+Best Practices:
+- Multi-stage builds для optimization
+- Minimal base images (Alpine, Distroless)
+- Non-root user
+- .dockerignore для excluding files
+- Layer caching optimization
+- Security scanning
+
+Example Dockerfile:
+```dockerfile
+# Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+USER node
+EXPOSE 3000
+CMD ["node", "dist/index.js"]
+```
+
+Docker Compose
+- Local development
+- Multi-container applications
+- Service orchestration
+- Volume management
+
+Kubernetes Orchestration
+
+Architecture:
+- Master nodes (control plane)
+- Worker nodes (run pods)
+- etcd (state storage)
+- API server
+
+Key Concepts:
+- Pods - smallest deployable units
+- Deployments - manage replicas
+- Services - networking
+- Ingress - external access
+- ConfigMaps - configuration
+- Secrets - sensitive data
+- PersistentVolumes - storage
+
+Deployment Example:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: app
+        image: company/app:v1.0.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+```
+
+Helm:
+- Package manager для Kubernetes
+- Templating engine
+- Release management
+- Values override per environment
+
+ArgoCD:
+- GitOps continuous delivery
+- Declarative setup
+- Auto-sync from git
+- Rollback capabilities
+
+Monitoring & Observability
+
+Metrics (Prometheus + Grafana)
+
+What to monitor:
+- Request rate
+- Error rate
+- Response time (latency)
+- Saturation (CPU, memory, disk, network)
+- Business metrics
+
+Prometheus:
+- Time-series database
+- Pull-based model
+- PromQL query language
+- Alerting rules
+
+Grafana:
+- Visualization
+- Dashboards
+- Alerting
+- Multiple data sources
+
+Logging (ELK Stack / Loki)
+
+ELK:
+- Elasticsearch - storage
+- Logstash - processing
+- Kibana - visualization
+
+Loki + Grafana:
+- Lightweight alternative
+- Label-based indexing
+- Efficient storage
+- Native Grafana integration
+
+Best Practices:
+- Structured logging (JSON)
+- Log levels (debug, info, warn, error)
+- Correlation IDs
+- No sensitive data в logs
+
+Tracing (Jaeger / Zipkin)
+
+Distributed Tracing:
+- Request flow через microservices
+- Performance bottlenecks
+- Dependency visualization
+- Error tracking
+
+OpenTelemetry:
+- Vendor-neutral standard
+- Instrumentation libraries
+- Unified approach
+
+Application Performance Monitoring
+
+Datadog:
+- APM
+- Infrastructure monitoring
+- Log management
+- Synthetic monitoring
+
+New Relic:
+- Application monitoring
+- Browser monitoring
+- Mobile monitoring
+- Alerting
+
+Security Practices
+
+Container Security
+
+Image Scanning:
+- Trivy для vulnerability scanning
+- Snyk для dependency checking
+- Automated scanning в CI/CD
+
+Runtime Security:
+- Pod Security Policies
+- Network Policies
+- RBAC (Role-Based Access Control)
+- Secrets management
+
+Secrets Management
+
+HashiCorp Vault:
+- Centralized secrets storage
+- Dynamic secrets
+- Encryption as a service
+- Access control
+- Audit logs
+
+AWS Secrets Manager / Azure Key Vault:
+- Cloud-native solutions
+- Auto-rotation
+- Integration с services
+
+Best Practices:
+- Never commit secrets
+- Use environment variables
+- Rotate regularly
+- Audit access
+- Least privilege principle
+
+Network Security
+
+Firewalls:
+- Security Groups (AWS)
+- Network Security Groups (Azure)
+- Firewall Rules (GCP)
+
+VPN:
+- Secure access к internal resources
+- Site-to-site VPN
+- Client VPN
+
+Service Mesh (Istio):
+- mTLS between services
+- Traffic management
+- Observability
+- Security policies
+
+Backup & Disaster Recovery
+
+Backup Strategy
+
+Databases:
+- Automated daily backups
+- Point-in-time recovery
+- Cross-region replication
+- Backup testing
+
+Application Data:
+- S3 versioning
+- Snapshot backups
+- Retention policies
+
+Disaster Recovery
+
+RTO (Recovery Time Objective):
+- Target time для service restoration
+- Production: < 1 hour
+- Non-critical: < 4 hours
+
+RPO (Recovery Point Objective):
+- Maximum acceptable data loss
+- Critical systems: < 15 minutes
+- Non-critical: < 1 hour
+
+DR Strategies:
+- Backup & Restore (cheapest, slowest)
+- Pilot Light (minimal running resources)
+- Warm Standby (scaled-down replica)
+- Hot Standby (full duplicate, most expensive)
+
+Testing:
+- Quarterly DR drills
+- Documented procedures
+- Incident response plan
+
+Cost Optimization
+
+Right-sizing:
+- Monitor resource utilization
+- Scale down over-provisioned resources
+- Use auto-scaling
+
+Reserved Instances / Savings Plans:
+- Commit для long-term workloads
+- 30-70% savings
+
+Spot Instances:
+- Non-critical workloads
+- Batch processing
+- Up to 90% savings
+
+Storage Optimization:
+- Lifecycle policies
+- Compression
+- Deduplication
+- Archive old data
+
+Performance Optimization
+
+Caching:
+- Redis для application caching
+- CloudFront CDN для static assets
+- Database query caching
+- API response caching
+
+Database Optimization:
+- Proper indexing
+- Query optimization
+- Connection pooling
+- Read replicas
+
+Load Balancing:
+- Distribute traffic
+- Health checks
+- Auto-scaling
+- Geographic distribution
+
+Collaboration & Culture
+
+Shared Responsibility
+
+- Development owns code quality
+- Operations owns platform stability
+- Together own production
+- Blameless post-mortems
+
+Communication:
+- Daily standups
+- Incident response coordination
+- Knowledge sharing sessions
+- Documentation
+
+On-Call Rotation
+
+Schedule:
+- Primary on-call (1 week rotation)
+- Secondary backup
+- Escalation path
+
+Responsibilities:
+- Monitor alerts
+- Respond to incidents
+- Resolve or escalate
+- Document incidents
+
+Compensation:
+- On-call bonus
+- Incident response pay
+- Time-off compensation
+
+Tools & Platforms
+
+Version Control:
+- Git (GitHub Enterprise)
+- GitFlow branching
+- Conventional commits
+
+CI/CD:
+- GitHub Actions
+- ArgoCD
+- Spinnaker (for complex deployments)
+
+Infrastructure:
+- Terraform
+- Ansible
+- CloudFormation
+
+Containers:
+- Docker
+- Kubernetes
+- Helm
+
+Monitoring:
+- Prometheus
+- Grafana
+- Datadog
+- ELK Stack
+
+Communication:
+- Slack
+- PagerDuty
+- Jira
+- Confluence
+
+Metrics & KPIs
+
+DORA Metrics:
+- Deployment Frequency
+- Lead Time for Changes
+- Time to Restore Service
+- Change Failure Rate
+
+Goals:
+- Deploy multiple times per day
+- Lead time < 1 day
+- MTTR < 1 hour
+- Change failure rate < 15%
+
+SLIs / SLOs / SLAs:
+- SLI: Service Level Indicator (metric)
+- SLO: Service Level Objective (target)
+- SLA: Service Level Agreement (contract)
+
+Example:
+- SLI: API response time
+- SLO: 95% of requests < 200ms
+- SLA: 99.9% uptime
+
+Error Budget:
+- (100% - SLO) = Error Budget
+- Use budget для innovation
+- Budget exhausted = focus на reliability
+
+Best Practices
+
+Development:
+- Feature flags для controlled rollouts
+- Canary deployments
+- Automated testing
+- Code reviews
+- Documentation
+
+Operations:
+- Monitoring everything
+- Automated alerts
+- Runbooks для common issues
+- Post-mortem для incidents
+- Capacity planning
+
+Security:
+- Security scanning в CI/CD
+- Secrets management
+- Regular updates
+- Security training
+- Compliance automation
+
+Common Challenges
+
+Challenge: Manual processes slow down delivery
+Solution: Automate everything possible
+
+Challenge: Environment inconsistencies
+Solution: Infrastructure as Code, containerization
+
+Challenge: Slow incident response
+Solution: Better monitoring, runbooks, on-call rotation
+
+Challenge: Knowledge silos
+Solution: Documentation, knowledge sharing, cross-training
+
+Challenge: Technical debt
+Solution: Allocate time, refactoring sprints, quality gates
+
+Resources
+
+DevOps Wiki: https://wiki.company.com/devops
+Runbooks: https://wiki.company.com/runbooks
+Architecture Docs: https://docs.company.com/architecture
+#devops в Slack
+DevOps Team: devops@company.com
+
+Training:
+- Internal DevOps bootcamp
+- AWS/GCP/Azure certifications
+- Kubernetes certification (CKA/CKAD)
+- Terraform certification
+
+Remember: DevOps - это культура, не просто инструменты!
+

@@ -1,0 +1,510 @@
+PROJECT MANAGEMENT В IT-КОМПАНИИ
+
+Подход к управлению проектами
+
+Мы используем Agile-подход с элементами Scrum, Kanban и Lean в зависимости от специфики проекта. Цель - максимизировать value для клиента при минимизации waste.
+
+Типы проектов
+
+1. Product Development (внутренние продукты)
+- Long-term roadmap
+- Continuous delivery
+- Product Owner-driven
+- Scrum framework
+
+2. Client Projects (разработка для клиентов)
+- Fixed scope или Time & Material
+- Client collaboration
+- Milestone-based delivery
+- Hybrid Agile approach
+
+3. Internal Projects (infrastructure, tools)
+- Priority-driven
+- Kanban approach
+- Tech-led
+- Continuous improvement
+
+Роли в проекте
+
+Product Owner (PO)
+Ответственности:
+- Product vision и roadmap
+- Backlog prioritization
+- Stakeholder management
+- Acceptance criteria
+- Go/no-go decisions
+
+Scrum Master / Agile Coach
+Ответственности:
+- Facilitate ceremonies
+- Remove impediments
+- Coach team на Agile practices
+- Process improvement
+- Shield team от external noise
+
+Project Manager (для client projects)
+Ответственности:
+- Scope management
+- Timeline tracking
+- Budget management
+- Risk management
+- Client communications
+- Contract management
+
+Tech Lead
+Ответственности:
+- Technical direction
+- Architecture decisions
+- Code quality oversight
+- Technical risk management
+- Capacity planning
+
+Team Members
+- Разработчики
+- QA engineers
+- DevOps engineers
+- Designers
+- Business analysts
+
+Project Lifecycle
+
+1. Initiation (2-4 weeks)
+
+Discovery Phase:
+- Stakeholder interviews
+- Requirements gathering
+- Feasibility analysis
+- Risk assessment
+- Budget estimation
+- Team composition
+
+Deliverables:
+- Project charter
+- High-level requirements
+- Rough timeline
+- Budget estimate
+- Risk register
+
+2. Planning (2-3 weeks)
+
+Activities:
+- Detailed requirements
+- User stories creation
+- Architecture design
+- Technology stack selection
+- Sprint/milestone planning
+- Team onboarding
+- Setup infrastructure
+
+Deliverables:
+- Product backlog
+- Technical design document
+- Sprint plan
+- Definition of Ready
+- Definition of Done
+- Communication plan
+
+3. Execution (varies)
+
+Sprint Cycle (2 weeks):
+
+Week 1:
+- Day 1: Sprint Planning (4 hours)
+  - Sprint goal
+  - Story selection
+  - Task breakdown
+  - Commitment
+  
+- Days 2-5: Development
+  - Daily standup (15 min)
+  - Development work
+  - Code reviews
+  - Testing
+  - Documentation
+
+Week 2:
+- Days 1-3: Development continues
+  - Bug fixing
+  - Code reviews
+  - Integration testing
+  
+- Day 4: Sprint Review (2 hours)
+  - Demo to stakeholders
+  - Feedback collection
+  - Backlog refinement
+  
+- Day 5: Sprint Retrospective (1.5 hours)
+  - What went well
+  - What to improve
+  - Action items
+  
+Parallel activities:
+- Backlog refinement (ongoing)
+- Stakeholder updates (weekly)
+- Risk management (continuous)
+
+4. Monitoring & Control (continuous)
+
+Tracking:
+- Sprint burndown
+- Velocity trends
+- Quality metrics
+- Budget vs actual
+- Timeline adherence
+
+Reviews:
+- Daily standups
+- Weekly stakeholder updates
+- Monthly steering committee
+- Quarterly business reviews
+
+5. Closure
+
+Activities:
+- Final delivery
+- Documentation handover
+- Knowledge transfer
+- Lessons learned session
+- Project retrospective
+- Archive artifacts
+
+Deliverables:
+- Final product
+- Documentation
+- Training materials
+- Project closure report
+- Lessons learned document
+
+Methodologies
+
+Scrum (для product development)
+
+Artifacts:
+- Product Backlog
+- Sprint Backlog
+- Increment
+
+Events:
+- Sprint Planning
+- Daily Scrum
+- Sprint Review
+- Sprint Retrospective
+- Backlog Refinement
+
+Roles:
+- Product Owner
+- Scrum Master
+- Development Team
+
+Kanban (для support и operations)
+
+Principles:
+- Visualize workflow
+- Limit WIP
+- Manage flow
+- Make policies explicit
+- Continuous improvement
+
+Board columns:
+- To Do
+- In Progress
+- Code Review
+- Testing
+- Done
+
+WIP Limits:
+- In Progress: 2 per person
+- Code Review: 5 total
+- Testing: 3 total
+
+Estimation
+
+Story Points (для Scrum teams)
+
+Planning Poker:
+- Fibonacci sequence (1, 2, 3, 5, 8, 13, 21)
+- Team consensus
+- Consider complexity, effort, risk
+
+Reference stories:
+- 1 point: Typo fix
+- 3 points: Simple form
+- 5 points: CRUD endpoint
+- 8 points: Complex feature
+- 13 points: Integration with external service
+
+T-shirt sizing (для high-level planning)
+- XS: 1-2 days
+- S: 3-5 days
+- M: 1-2 weeks
+- L: 2-4 weeks
+- XL: 1-2 months
+
+Communication Plan
+
+Daily:
+- Standup meeting (15 min)
+- Slack updates
+- Code review comments
+
+Weekly:
+- Team sync (1 hour)
+- Stakeholder update (30 min)
+- Backlog refinement (1 hour)
+
+Bi-weekly:
+- Sprint review
+- Sprint retrospective
+- Planning for next sprint
+
+Monthly:
+- Steering committee meeting
+- Metrics review
+- Roadmap update
+
+Quarterly:
+- Business review
+- OKR review
+- Team retrospective
+
+Tools & Systems
+
+Project Management:
+- Jira - task tracking
+- Confluence - documentation
+- Miro - collaborative planning
+- Slack - communication
+
+Development:
+- GitHub - code repository
+- CI/CD pipelines
+- Monitoring dashboards
+
+Reporting:
+- Jira dashboards
+- Custom reports
+- Automated alerts
+
+Risk Management
+
+Risk Categories:
+- Technical risks
+- Resource risks
+- Schedule risks
+- Budget risks
+- External dependencies
+- Security risks
+
+Risk Matrix:
+- Probability: Low / Medium / High
+- Impact: Low / Medium / High
+- Priority: Probability × Impact
+
+Mitigation Strategies:
+- Avoidance - eliminate the risk
+- Mitigation - reduce probability/impact
+- Transfer - insurance or outsource
+- Acceptance - monitor and have contingency
+
+Risk Register:
+- Risk ID
+- Description
+- Category
+- Probability
+- Impact
+- Owner
+- Mitigation plan
+- Status
+
+Quality Management
+
+Quality Goals:
+- 80% code coverage
+- Zero high/critical bugs at release
+- < 5% bug escape rate
+- API response time < 200ms (p95)
+- Uptime > 99.9%
+
+Quality Assurance Activities:
+- Code reviews (100% coverage)
+- Automated testing
+- Manual testing
+- Security scans
+- Performance testing
+- User acceptance testing
+
+Change Management
+
+Change Request Process:
+1. Submit change request
+2. Impact analysis
+3. Estimation
+4. Approval (by steering committee)
+5. Implementation
+6. Verification
+
+Small changes (< 2 days):
+- PO approval sufficient
+
+Medium changes (2-5 days):
+- Team discussion + PO approval
+
+Large changes (> 5 days):
+- Steering committee approval
+
+Stakeholder Management
+
+Identification:
+- Primary stakeholders (direct benefit)
+- Secondary stakeholders (indirect impact)
+- Key influencers
+- Decision makers
+
+Engagement Strategy:
+- Regular updates
+- Demo sessions
+- Feedback collection
+- Expectation management
+- Issue escalation path
+
+Communication Matrix:
+- Executive: Monthly high-level updates
+- Business owners: Bi-weekly demos
+- Users: Release notes
+- Team: Daily collaboration
+
+Budget Management
+
+Budget Components:
+- Labor costs (team salaries)
+- Infrastructure (cloud, tools)
+- Third-party services
+- Training and conferences
+- Contingency (10-15%)
+
+Tracking:
+- Actual vs planned (weekly)
+- Burn rate monitoring
+- Forecast to completion
+- Variance analysis
+
+Reporting:
+- Monthly budget reports
+- Quarterly reviews
+- Cost optimization recommendations
+
+Success Metrics
+
+Project Success:
+- On-time delivery
+- Within budget
+- Quality standards met
+- Stakeholder satisfaction
+- Business goals achieved
+
+Team Success:
+- Velocity stability
+- Team morale
+- Skills growth
+- Low turnover
+- Innovation
+
+Process Success:
+- Predictability
+- Efficiency
+- Waste minimization
+- Continuous improvement
+- Risk mitigation
+
+Common Challenges & Solutions
+
+Challenge: Scope creep
+Solution: Strict change management, clear requirements, regular alignment
+
+Challenge: Resource constraints
+Solution: Prioritization, phased delivery, buffer planning
+
+Challenge: Technical debt
+Solution: Dedicated refactoring time, quality gates, code reviews
+
+Challenge: Communication gaps
+Solution: Overcommunication, clear documentation, regular syncs
+
+Challenge: Unclear requirements
+Solution: Iterative refinement, prototypes, continuous clarification
+
+Challenge: Timeline pressure
+Solution: MVP approach, feature prioritization, realistic estimates
+
+Best Practices
+
+Planning:
+- Start with WHY (problem statement)
+- Define clear success criteria
+- Break down work into small pieces
+- Include buffer time
+- Plan for risks
+
+Execution:
+- Deliver incrementally
+- Get early feedback
+- Maintain code quality
+- Document as you go
+- Communicate proactively
+
+Monitoring:
+- Track leading indicators
+- Address issues early
+- Celebrate wins
+- Learn from failures
+- Adapt quickly
+
+Team:
+- Empower the team
+- Remove blockers
+- Foster collaboration
+- Provide support
+- Recognize contributions
+
+Templates & Checklists
+
+Project Charter Template
+1. Executive Summary
+2. Problem Statement
+3. Goals and Objectives
+4. Scope (in/out)
+5. Stakeholders
+6. High-level Timeline
+7. Budget Estimate
+8. Risks
+9. Assumptions
+10. Success Criteria
+
+Sprint Planning Checklist:
+☐ Sprint goal defined
+☐ Capacity calculated
+☐ Stories refined and estimated
+☐ Stories meet DoR
+☐ Tasks broken down
+☐ Dependencies identified
+☐ Team commitment
+
+Project Closure Checklist:
+☐ All deliverables completed
+☐ Acceptance signed off
+☐ Documentation handed over
+☐ Knowledge transfer completed
+☐ Lessons learned captured
+☐ Resources released
+☐ Project archived
+
+Resources
+
+PM Wiki: https://wiki.company.com/pm
+Templates: https://wiki.company.com/templates
+PM Community: #project-management в Slack
+Training: PM Office Hours (Wednesdays 15:00)
+Contact: pmo@company.com
+
+Remember: Methodologies are tools, not rules. Adapt to project context!
+
