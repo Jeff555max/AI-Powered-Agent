@@ -250,24 +250,4 @@ setup_logging(level="DEBUG")  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 - **BeautifulSoup4** — парсинг HTML
 - **python-dotenv** — управление переменными окружения
 
-## 📝 Лицензия
-
-MIT License
-
-## 👨‍💻 Автор
-
-[Jeff555max](https://github.com/Jeff555max)
-
-## 🤝 Вклад в проект
-
-Приветствуются Pull Requests и Issues!
-
-1. Fork проекта
-2. Создайте feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Push в branch (`git push origin feature/AmazingFeature`)
-5. Откройте Pull Request
-
-## 📞 Поддержка
-
-Если у вас возникли вопросы или проблемы, создайте Issue в репозитории.
+ 
