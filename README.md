@@ -52,6 +52,9 @@ TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 
 # OpenAI
 OPENAI_API_KEY=your_openai_api_key
+OPENAI_MODEL=gpt-4o-mini
+OPENAI_TEMPERATURE=0.7
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 
 # GigaChat (опционально)
 GIGACHAT_API_KEY=your_gigachat_api_key
